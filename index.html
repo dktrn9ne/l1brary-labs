@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L1brary Labs — Creative Technology + R&D</title>
+  <meta name="description" content="L1brary Labs is a creative technology studio + R&D lab building tools, systems, and IP at the intersection of culture, AI, music, and Web3." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: oklch(0.14 0 0);
+      --fg: oklch(0.98 0 0);
+      --muted: oklch(0.72 0 0);
+      --border: oklch(0.3 0 0);
+      --accent: oklch(0.75 0.18 296);
+      --accent-2: oklch(0.78 0.16 190);
+      --card: oklch(0.18 0 0);
+      --radius: 1rem;
+      --shadow: 0 10px 30px oklch(0.05 0 0 / 0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, oklch(0.2 0 0) 0%, var(--bg) 55%),
+                  radial-gradient(1000px 500px at 90% 20%, oklch(0.2 0 0) 0%, var(--bg) 60%),
+                  var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: oklch(0.14 0 0 / 0.7);
+      border-bottom: 1px solid var(--border);
+      z-index: 20;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .btn {
+      padding: 0.75rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      transition: 180ms ease;
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: var(--bg);
+      border: none;
+      box-shadow: var(--shadow);
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .pillars, .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 8px 18px oklch(0.05 0 0 / 0.35);
+      transition: 200ms ease;
+    }
+    .card:hover { transform: translateY(-4px); }
+
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .ecosystem {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .note {
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2.5rem 0 3.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .mono { font-family: "JetBrains Mono", monospace; }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge">L1</div>
+        <span>L1brary Labs</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#phases">Phases</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#contact">Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="about">
+      <p class="tag">CREATIVE TECH + R&amp;D</p>
+      <h1>L1brary Labs is a creative technology studio + R&amp;D lab building tools, systems, and IP at the intersection of culture, AI, music, and Web3.</h1>
+      <p>
+        We build infrastructure before products — designing the internal systems, data ownership, and creative workflows that make cultural ventures durable. The “1” is a feature, not a flaw.
+      </p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#ecosystem">Explore the Vision</a>
+        <a class="btn" href="#contact">Work With Us</a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Three Pillars</h2>
+      <div class="pillars">
+        <div class="card">
+          <p class="tag">🧠 IP ENGINE</p>
+          <h3>Scalable story worlds</h3>
+          <p>Designs lore systems, IP strategy, and narrative infrastructure built to compound.</p>
+        </div>
+        <div class="card">
+          <p class="tag">🛠 TOOL BUILDER</p>
+          <h3>Creative operational leverage</h3>
+          <p>Builds internal tools and AI workflows that increase output, consistency, and ownership.</p>
+        </div>
+        <div class="card">
+          <p class="tag">🌐 CULTURAL INFRASTRUCTURE</p>
+          <h3>Ownership-first tech</h3>
+          <p>Creates systems that protect data, authorship, and long-term cultural value.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="ecosystem">
+      <h2 class="section-title">How L1brary Labs sits in the ecosystem</h2>
+      <div class="ecosystem">
+        <div class="card">
+          <p class="tag">PARENT COMPANY</p>
+          <h3>Owns the stack</h3>
+          <p>Owns the tech. Owns the data. Owns the AI workflows. Owns the future products.</p>
+        </div>
+        <div class="card">
+          <p class="tag">FLAGSHIP CULTURAL BRAND</p>
+          <h3>DKTR N9NE is the living demo</h3>
+          <p>First customer. First dataset. First community. Proof of concept in real time.</p>
+        </div>
+      </div>
+      <p class="note">L1brary Labs is the engine. DKTR N9NE is the proof.</p>
+    </section>
+
+    <section class="section container" id="phases">
+      <h2 class="section-title">Immediate strategic use cases (no overreach)</h2>
+      <div class="cards">
+        <div class="card">
+          <p class="tag">PHASE 1 — INTERNAL SYSTEMS</p>
+          <h3>Quietly power operations</h3>
+          <p>Content intelligence, narrative consistency, fan segmentation, and drop optimization.</p>
+        </div>
+        <div class="card">
+          <p class="tag">PHASE 2 — IP + WORLDBUILDING</p>
+          <h3>Make music a universe</h3>
+          <p>Lore systems, interactive experiences, AI-assisted storytelling, token-gated narrative.</p>
+        </div>
+        <div class="card">
+          <p class="tag">PHASE 3 — EXTERNAL PRODUCTS</p>
+          <h3>Validated offerings</h3>
+          <p>AI tools for independent artists, cultural AI models, and Web3-native creative infrastructure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <h2 class="section-title">Connect</h2>
+      <p class="note">Want to build with us? Let’s talk.</p>
+      <div class="hero-cta" style="margin-top:1rem;">
+        <a class="btn primary" href="mailto:hello@l1brarylabs.com">hello@l1brarylabs.com</a>
+        <a class="btn" href="#">Request a briefing</a>
+      </div>
+      <p class="tag" style="margin-top:1rem;">The “1” in L1brary is intentional — lean into it.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>L1brary Labs © 2026</div>
+      <div class="mono">Austin, TX</div>
+    </div>
+  </footer>
+</body>
+</html>
