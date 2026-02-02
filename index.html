@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L1brary Labs — AI Solutions Consulting (Austin)</title>
-  <meta name="description" content="L1brary Labs is a creative technology studio + R&D lab providing AI solutions consulting for Austin SMBs." />
+  <title>L1brary Labs — AI Solutions Consulting</title>
+  <meta name="description" content="L1brary Labs is a creative technology studio + R&D lab providing AI solutions consulting for SMBs." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -141,7 +141,7 @@
       margin: 0 0 1.5rem;
     }
 
-    .pillars, .cards {
+    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.25rem;
@@ -162,12 +162,6 @@
       font-size: 1.1rem;
     }
 
-    .price {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin: 0.25rem 0 0.75rem;
-    }
-
     .tag {
       font-family: "JetBrains Mono", monospace;
       font-size: 0.8rem;
@@ -181,12 +175,6 @@
       color: var(--muted);
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
     footer {
       padding: 2.5rem 0 3.5rem;
       color: var(--muted);
@@ -195,6 +183,79 @@
     }
 
     .mono { font-family: "JetBrains Mono", monospace; }
+
+    /* Chat widget */
+    .chat-launcher {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border: none;
+      color: var(--bg);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 50;
+    }
+
+    .chat-panel {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      width: 320px;
+      max-width: calc(100vw - 40px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: none;
+      z-index: 50;
+    }
+
+    .chat-header {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-body {
+      padding: 1rem;
+      max-height: 320px;
+      overflow: auto;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .chat-bubble {
+      background: oklch(0.22 0 0);
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      border-radius: 12px;
+      margin: 0.4rem 0;
+      color: var(--fg);
+    }
+
+    .chat-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .chip {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
 
     @media (max-width: 720px) {
       .nav-links { display: none; }
@@ -211,8 +272,8 @@
       </div>
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#models">Engagement</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="btn" href="#contact">Start a Project</a>
@@ -221,123 +282,70 @@
 
   <main>
     <section class="hero container" id="services">
-      <p class="tag">AI SOLUTIONS CONSULTING — AUSTIN, TX</p>
-      <h1>We help Austin SMBs design, build, and deploy AI systems that create leverage — from strategy to fully‑built assistants.</h1>
+      <p class="tag">AI SOLUTIONS CONSULTING</p>
+      <h1>We help SMBs design, build, and deploy AI systems that create leverage — from strategy to fully‑built assistants.</h1>
       <p>
         L1brary Labs is a creative technology studio + R&D lab specializing in AI systems, automation, and intelligence for small businesses. Clear scope, fast execution, and ownership‑first infrastructure.
       </p>
       <div class="hero-cta">
-        <a class="btn primary" href="#pricing">View Pricing Menu</a>
+        <a class="btn primary" href="#process">How We Work</a>
         <a class="btn" href="#contact">Book a Call</a>
       </div>
     </section>
 
-    <section class="section container" id="pricing">
-      <h2 class="section-title">AI Solutions Pricing Menu (SMB)</h2>
-      <p class="section-sub">Austin market note: independent AI consultants often charge $125–$200/hr or $1,000–$1,600/day. These ranges reflect that market, with clear deliverables.</p>
-
+    <section class="section container" id="process">
+      <h2 class="section-title">What we build</h2>
+      <p class="section-sub">Strategy, implementation, and enablement — tailored to your current data maturity and team size.</p>
       <div class="cards">
         <div class="card">
           <p class="tag">🧠 STRATEGY & ADVISORY</p>
-          <h3>AI Readiness Assessment</h3>
-          <p class="price">$1,500 – $3,000</p>
-          <p>Quick audit of ops, systems, and workflows. Opportunity mapping + cost/benefit analysis. Deliverable: executive summary + roadmap.</p>
+          <h3>Readiness + roadmap</h3>
+          <p>Operational audits, opportunity mapping, and 90‑day AI strategy with clear deliverables.</p>
         </div>
         <div class="card">
-          <p class="tag">🧠 STRATEGY & ADVISORY</p>
-          <h3>AI Strategy & Roadmapping</h3>
-          <p class="price">$3,000 – $6,000</p>
-          <p>Tailored 90‑day plan. Build vs buy evaluation. Deliverable: strategy deck + action plan.</p>
-        </div>
-
-        <div class="card">
-          <p class="tag">⚙️ IMPLEMENTATION & BUILD</p>
-          <h3>Custom AI Assistants</h3>
-          <p class="price">$4,000 – $12,000</p>
-          <p>Internal or customer‑facing assistants with data integration (CRM/Slack/Notion).
-            Typical tiers: simple internal ($4k–$6k), support/sales ($6k–$9k), multi‑role ($9k–$12k+).</p>
-        </div>
-        <div class="card">
-          <p class="tag">⚙️ IMPLEMENTATION & BUILD</p>
-          <h3>Workflow Automation</h3>
-          <p class="price">$5,000 – $15,000</p>
-          <p>AI‑powered routing, automations, and CRM bridging. Includes testing + staff onboarding.</p>
-        </div>
-        <div class="card">
-          <p class="tag">⚙️ IMPLEMENTATION & BUILD</p>
-          <h3>Advanced Agentic Systems</h3>
-          <p class="price">$10,000 – $30,000+</p>
-          <p>Multi‑step autonomous workflows with guardrails, logging, and monitoring. Best for data‑mature teams.</p>
-        </div>
-
-        <div class="card">
-          <p class="tag">📊 DATA & INTELLIGENCE</p>
-          <h3>Private AI Knowledge System</h3>
-          <p class="price">$6,000 – $18,000</p>
-          <p>Secure searchable knowledge base from docs, SOPs, or internal data for team‑wide access.</p>
+          <p class="tag">⚙️ IMPLEMENTATION</p>
+          <h3>Custom AI assistants</h3>
+          <p>Internal and customer‑facing assistants with data integrations (CRM, Notion, Slack, etc.).</p>
         </div>
         <div class="card">
           <p class="tag">📊 DATA & INTELLIGENCE</p>
-          <h3>Decision Intelligence Dashboards</h3>
-          <p class="price">$5,000 – $12,000</p>
-          <p>Natural language querying + executive summaries from data sources — no heavy BI needed.</p>
-        </div>
-
-        <div class="card">
-          <p class="tag">🎙️ CONTENT & BRAND AI</p>
-          <h3>AI Content Systems</h3>
-          <p class="price">$3,000 – $9,000</p>
-          <p>Content ideation + repurposing systems, prompt frameworks, and templating for lean teams.</p>
+          <h3>Knowledge + decision systems</h3>
+          <p>Private AI knowledge bases and decision intelligence dashboards for leadership clarity.</p>
         </div>
         <div class="card">
-          <p class="tag">🎙️ CONTENT & BRAND AI</p>
-          <h3>Voice / Chat Experiences</h3>
-          <p class="price">$7,000 – $20,000+</p>
-          <p>Branded voice assistants or chat widgets with interactive front‑end UX and integrations.</p>
-        </div>
-
-        <div class="card">
-          <p class="tag">🧩 TRAINING & ENABLEMENT</p>
-          <h3>Team AI Training</h3>
-          <p class="price">$1,500 – $4,000 / session</p>
-          <p>Non‑technical workshops: prompt literacy + best practices. Often bundled with implementation.</p>
+          <p class="tag">🎙️ CONTENT & BRAND</p>
+          <h3>AI content systems</h3>
+          <p>Ideation, repurposing, and brand voice systems built for lean teams.</p>
         </div>
         <div class="card">
           <p class="tag">🧩 TRAINING & ENABLEMENT</p>
-          <h3>AI SOPs & Governance</h3>
-          <p class="price">$2,000 – $5,000</p>
-          <p>Defines safe, repeatable AI usage across teams and departments.</p>
+          <h3>Team AI training</h3>
+          <p>Workshops and governance that make AI usage safe, repeatable, and scalable.</p>
         </div>
-
         <div class="card">
-          <p class="tag">🧪 R&D / EXPERIMENTAL</p>
-          <h3>AI Prototyping / Proof of Concept</h3>
-          <p class="price">$3,000 – $8,000</p>
-          <p>Fast validation before major investment. Ideal for new ideas and green‑field use cases.</p>
+          <p class="tag">🧪 R&D</p>
+          <h3>Prototyping & proof of concept</h3>
+          <p>Fast validation before major investment with measurable outcomes.</p>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="models">
-      <h2 class="section-title">Engagement Models (Local SMB favored)</h2>
-      <div class="grid-2">
+    <section class="section container" id="faq">
+      <h2 class="section-title">FAQ</h2>
+      <div class="cards">
         <div class="card">
-          <p class="tag">MONTHLY RETAINERS</p>
-          <h3>$2,500 – $8,000 / month</h3>
-          <p>Ongoing advisory, optimization, and roadmap execution.</p>
+          <h3>How does pricing work?</h3>
+          <p>We scope based on complexity, data access, and timeline. You’ll get a fixed proposal after a short discovery call.</p>
         </div>
         <div class="card">
-          <p class="tag">HOURLY CONSULTING</p>
-          <h3>$125 – $200+ / hour</h3>
-          <p>Aligned with Austin freelance AI consultant rates.</p>
+          <h3>What’s the first step?</h3>
+          <p>Book a call. We’ll discuss goals, constraints, and the fastest path to value.</p>
         </div>
         <div class="card">
-          <p class="tag">FIXED PROJECT PRICING</p>
-          <h3>Milestone‑based</h3>
-          <p>Clear deliverables and scope for SMB budgeting certainty.</p>
+          <h3>Do you work with small teams?</h3>
+          <p>Yes — most of our work is with small and mid‑sized teams that need leverage quickly.</p>
         </div>
       </div>
-      <p class="note" style="margin-top:1.5rem;">All projects begin with a brief discovery call to align scope, data access, and success criteria.</p>
     </section>
 
     <section class="section container" id="contact">
@@ -347,15 +355,59 @@
         <a class="btn primary" href="mailto:hello@l1brarylabs.com">hello@l1brarylabs.com</a>
         <a class="btn" href="#">Request a briefing</a>
       </div>
-      <p class="tag" style="margin-top:1rem;">Austin, TX • Remote + On‑site</p>
     </section>
   </main>
 
   <footer>
     <div class="container">
       <div>L1brary Labs © 2026</div>
-      <div class="mono">Austin, TX</div>
+      <div class="mono">5900 Balcones Dr STE 13695 · Austin, TX 78731 · DKTR N9NE LLC</div>
     </div>
   </footer>
+
+  <!-- Simple FAQ Chat Widget (no backend) -->
+  <button class="chat-launcher" id="chatLauncher">?</button>
+  <div class="chat-panel" id="chatPanel" aria-live="polite">
+    <div class="chat-header">
+      <strong>Ask L1brary</strong>
+      <button class="chip" id="chatClose">Close</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-bubble">Hi — I can answer FAQs, pricing structure, and how to get started.</div>
+      <div class="chat-quick">
+        <button class="chip" data-q="pricing">How does pricing work?</button>
+        <button class="chip" data-q="start">How do we start?</button>
+        <button class="chip" data-q="timeline">Typical timeline?</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chatLauncher = document.getElementById('chatLauncher');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatClose = document.getElementById('chatClose');
+    const chatBody = document.getElementById('chatBody');
+
+    const answers = {
+      pricing: "We price per project after a short discovery call. Scope depends on complexity, data access, and desired timeline.",
+      start: "Start by emailing us or requesting a briefing. We’ll schedule a short discovery call and propose next steps.",
+      timeline: "Most engagements begin with a 1–2 week discovery phase, then build and rollout based on scope."
+    };
+
+    chatLauncher.addEventListener('click', () => {
+      chatPanel.style.display = chatPanel.style.display === 'block' ? 'none' : 'block';
+    });
+    chatClose.addEventListener('click', () => chatPanel.style.display = 'none');
+
+    chatBody.addEventListener('click', (e) => {
+      const q = e.target?.dataset?.q;
+      if (!q) return;
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble';
+      bubble.textContent = answers[q];
+      chatBody.appendChild(bubble);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+  </script>
 </body>
 </html>
